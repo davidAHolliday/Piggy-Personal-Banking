@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class UserMapper {
     public static List<UserResponse> mapUserToUserResponseList(List<Users> usersList) {
-        Function<Users, UserResponse> userToUserResponse = user -> new UserResponse(user.getUsername(), user.getEmail(), "");
+        Function<Users, UserResponse> userToUserResponse = user -> new UserResponse(user.getUserId(),user.getUsername(), user.getEmail(), "");
 
         return usersList.stream()
                 .map(userToUserResponse)
@@ -17,11 +17,11 @@ public class UserMapper {
 
     public static UserResponse mapUserToUserResponse(Users users) {
         if(null !=users) {
-            Function<Users, UserResponse> userToUserResponse = user -> new UserResponse(user.getUsername(), user.getEmail(), "");
+            Function<Users, UserResponse> userToUserResponse = user -> new UserResponse(user.getUserId(),user.getUsername(), user.getEmail(), "");
             UserResponse res = userToUserResponse.apply(users);
             return res;
         }
-        return new UserResponse("","","User Not Found");
+        return new UserResponse("","","","User Not Found");
 
 
     }
