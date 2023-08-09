@@ -9,10 +9,10 @@ import java.util.List;
 @Data
 @Document(collection = "accounts")
 public class Accounts {
-    @Id
+@Id
     private String accountId;
 
-    private String username;
+    private String userId;
 
     private List<AccountDetails> accountDetails;
 }

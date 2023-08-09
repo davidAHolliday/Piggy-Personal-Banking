@@ -97,9 +97,7 @@ public class GenControllers {
 
     @GetMapping("accounts/")
     public List<Accounts> getAllAccounts(){
-
         List<Accounts> lstAcct = accountsService.getAllAccounts();
-
         return lstAcct;
     }
 
@@ -108,6 +106,11 @@ public class GenControllers {
 
         AccountDetails lstAcct = accountsService.getAccountByAccountNumber(userId,loanNumber);
         return lstAcct;
+    }
+
+    @GetMapping("accounts/{userId}")
+    public List<AccountDetails> getAccountDetailsByNumber(@PathVariable String userId){
+       return accountsService.filterAccountByUserId(userId);
     }
 
     @GetMapping("accounts/summary/{userId}/{loanNumber}")

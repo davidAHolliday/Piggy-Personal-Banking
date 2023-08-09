@@ -36,4 +36,8 @@ public class AccountsService  {
     }
 
 
+    public List<AccountDetails> filterAccountByUserId(String userId) {
+        Accounts accts =  accountRepository.findByUserId(userId);
+        List<AccountDetails> account =  accts.getAccountDetails();
+        return account;    }
 }
